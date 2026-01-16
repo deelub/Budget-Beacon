@@ -39,3 +39,26 @@ def create_DB():  #Catgegories:
                             Leisure VARCHAR(255)
                             )
                         """)
+def DB_restrictions():
+    global insurance,savings,housing
+    print("The following questions will betterhelp budget beacon make your budgeting experience seamless, please ensure that you answeer all questions accurately, respond witht he appropriate index")
+    
+    savings_check=int(input("Do you save money monthly, or at all ? \n1.Yes \n2.No "))
+    
+    insurance_check=int(input("Do you pay for insurance ? \n1.Yes \n2.No "))
+    housing_check=int(input("Do you pay for housing ? \n1.Yes \n2.No "))
+    
+    if savings_check==1:
+        pass
+    else:
+        savings=0
+    
+    if insurance_check==1:
+        pass
+    else:
+        insurance=0
+    
+    if housing_check==1:
+        pass
+    else:
+        housing=0
