@@ -11,4 +11,8 @@ setup(
         [console_scripts]
         budget-beacon=app:cli
     ''',
-)
+# )
+
+# Currency selection
+# Default categories
+# Data storage location
