@@ -21,7 +21,21 @@ def test_DB_connection():
             print("Database connection unsuccesful, error: " + error)
             # budget_beacon_db.reconnect()
 
-def create_DB():
-      mycursor= budget_beacon_db.cursor(
-            mycursor.execute("CREATE DATABASE Budget Agenda")
-        )
+def create_DB():  #Catgegories:
+
+    mycursor= budget_beacon_db.cursor()
+    mycursor.execute("CREATE DATABASE {name}'s budget")
+    
+    
+    mycursor.execute("""
+                        CREATE TABLES General Budget (
+                            Food VARCHAR(255),
+                            Savings VARCHAR(255),
+                            Insurance VARCHAR(255),
+                            Transport VARCHAR(255),
+                            Housing VARCHAR(255),
+                            Food VARCHAR(255),
+                            Toiletries VARCHAR(255),
+                            Leisure VARCHAR(255)
+                            )
+                        """)
