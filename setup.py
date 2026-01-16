@@ -11,8 +11,18 @@ setup(
         [console_scripts]
         budget-beacon=app:cli
     ''',
-# )
+ )
 
 # Currency selection
 # Default categories
 # Data storage location
+
+#Figure out python database connection - Afterwards use that connection to get the sum of everything
+
+#Catgegories:
+# A. groceries
+# B. Transport
+# C. Toiletrics
+# D.Elec + Water
+# E/Housing/Rent
+#Leisure
