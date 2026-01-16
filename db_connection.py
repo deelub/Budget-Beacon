@@ -2,19 +2,26 @@
 
 import mysql.connector
 
-def Test_DB_Connection():
+def test_DB_connection():
+    global budget_beacon_db,mycursor
     connected=False
-    try:
-        mydb= mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="Christelle#6"
-        )
+    if connected==False:
+        try:
+            #sql connection made here
+            budget_beacon_db= mysql.connector.connect(
+                host="localhost",
+                user="root",
+                password="Christelle#6"
+            )
+            mycursor= budget_beacon_db.cursor()    
+            if budget_beacon_db.is_connected():
+                connected=True     
+                    
+        except mysql.connector.Error as error:            #Have command to retry connection
+            print("Database connection unsuccesful, error: " + error)
+            # budget_beacon_db.reconnect()
 
-        mycursor= mydb.cursor(
+def create_DB():
+      mycursor= budget_beacon_db.cursor(
             mycursor.execute("CREATE DATABASE Budget Agenda")
         )
-        connected=True
-    except FileNotFoundError as error:
-        print("Database connection unsuccesful")
-    
