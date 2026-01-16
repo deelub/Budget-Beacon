@@ -1,4 +1,5 @@
 from setuptools import setup
+from db_connection import create_DB
 
 setup(
     name='budget-beacon',
@@ -13,16 +14,5 @@ setup(
     ''',
  )
 
-# Currency selection
-# Default categories
-# Data storage location
-
-#Figure out python database connection - Afterwards use that connection to get the sum of everything
-
-#Catgegories:
-# A. groceries
-# B. Transport
-# C. Toiletrics
-# D.Elec + Water
-# E/Housing/Rent
-#Leisure
+def DB_setup(): #We should check for database name in users file. If it does not exist then DB was not set up
+    create_DB()
