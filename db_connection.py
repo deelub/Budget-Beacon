@@ -2,8 +2,8 @@
 
 import mysql.connector
 
-name = input('Please enter your name')
-surname=input("Please input your surname ")
+# name = input('Please enter your name')
+# surname=input("Please input your surname ")
 
 def test_DB_connection():
     global budget_beacon_db,mycursor
@@ -14,43 +14,18 @@ def test_DB_connection():
             budget_beacon_db= mysql.connector.connect(
                 host="localhost",
                 user="root",
-                password="Christelle#6"
+                password="Christelle#6",
+                database= "budget_beacon"
             )
             mycursor= budget_beacon_db.cursor()    
             if budget_beacon_db.is_connected():
-                connected=True     
-                    
+                connected=True                
+                return("Sucessfully connected to database")
         except mysql.connector.Error as error:            #Have command to retry connection
-            print("Database connection unsuccesful, error: " + error)
+            return("Database connection unsuccesful, error: " + error)
             # budget_beacon_db.reconnect()
 
-def create_DB():  #Catgegories:
 
-    mycursor= budget_beacon_db.cursor()
-    mycursor.execute("CREATE DATABASE Beacon Budget")
-    
-    
-    mycursor.execute("""
-                        CREATE TABLE General Budget (
-                            user_id VARCHAR(6) PRIMARY KEY,
-                            Savings DECIMAL(10,2),
-                            Insurance DECIMAL(10,2),
-                            Transport DECIMAL(10,2),
-                            Housing DECIMAL(10,2),
-                            Food DECIMAL(10,2),
-                            Toiletries DECIMAL(10,2),
-                            Leisure DECIMAL(10,2)
-                            )
-                        """)
-    
-    mycursor.execute('''
-                        CREATE TABLE Expenses(
-                            date DATE,
-                            amount FLOAT,
-                            category VARCHAR(255),
-                            
-                        )
-                     ''')
 def DB_restrictions():
     global insurance,savings,housing
     print("The following questions will better help budget beacon make your budgeting experience seamless, please ensure that you answer all questions accurately, and respond with he appropriate index")
@@ -75,4 +50,4 @@ def DB_restrictions():
     else:
         housing=(None)
         
-    
+print(test_DB_connection())
