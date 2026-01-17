@@ -29,14 +29,13 @@ def create_DB():  #Catgegories:
     
     mycursor.execute("""
                         CREATE TABLES General Budget (
-                            Food VARCHAR(255),
-                            Savings VARCHAR(255),
-                            Insurance VARCHAR(255),
-                            Transport VARCHAR(255),
-                            Housing VARCHAR(255),
-                            Food VARCHAR(255),
-                            Toiletries VARCHAR(255),
-                            Leisure VARCHAR(255)
+                            Savings FLOAT(255),
+                            Insurance FLOAT(255),
+                            Transport FLOAT(255),
+                            Housing FLOAT(255),
+                            Food FLOAT(255),
+                            Toiletries FLOAT(255),
+                            Leisure FLOAT(255)
                             )
                         """)
 def DB_restrictions():
