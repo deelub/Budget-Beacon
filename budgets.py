@@ -3,5 +3,13 @@
 # Warn when approaching limits
 
 def add_budget_provisions():
-    food = float(input("Enter your ideal budget for food"))
+    #Find a way to place restrictions of housing,insurance and savings question if they do not do it
+    savings=float(input("Enter the budget for housing"))
+    insurance=float(input("Enter the budget for savings"))
+    transport=float(input("Enter the budget for transport"))
+    housing =float(input("Enter the budget for housing"))
+    food=float(input("Enter the budget for food"))
+    toiletries=float(input("Enter the budget for toiletries"))
+    leisure=float(input("Enter the budget for leisure"))
+    
     
