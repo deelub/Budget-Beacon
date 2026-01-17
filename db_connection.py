@@ -51,14 +51,14 @@ def DB_restrictions():
     if savings_check==1:
         pass
     else:
-        savings=0
+        savings=(None)
     
     if insurance_check==1:
         pass
     else:
-        insurance=0
+        insurance=(None)
     
     if housing_check==1:
         pass
     else:
-        housing=0
+        housing=(None)
