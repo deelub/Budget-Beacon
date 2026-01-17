@@ -2,6 +2,9 @@
 
 import mysql.connector
 
+name = input('Please enter your name')
+surname=input("Please input your surname ")
+
 def test_DB_connection():
     global budget_beacon_db,mycursor
     connected=False
@@ -24,23 +27,33 @@ def test_DB_connection():
 def create_DB():  #Catgegories:
 
     mycursor= budget_beacon_db.cursor()
-    mycursor.execute("CREATE DATABASE {name}'s budget")
+    mycursor.execute("CREATE DATABASE Beacon Budget")
     
     
     mycursor.execute("""
-                        CREATE TABLES General Budget (
-                            Savings FLOAT(255),
-                            Insurance FLOAT(255),
-                            Transport FLOAT(255),
-                            Housing FLOAT(255),
-                            Food FLOAT(255),
-                            Toiletries FLOAT(255),
-                            Leisure FLOAT(255)
+                        CREATE TABLE General Budget (
+                            user_id VARCHAR(6) PRIMARY KEY,
+                            Savings DECIMAL(10,2),
+                            Insurance DECIMAL(10,2),
+                            Transport DECIMAL(10,2),
+                            Housing DECIMAL(10,2),
+                            Food DECIMAL(10,2),
+                            Toiletries DECIMAL(10,2),
+                            Leisure DECIMAL(10,2)
                             )
                         """)
+    
+    mycursor.execute('''
+                        CREATE TABLE Expenses(
+                            date DATE,
+                            amount FLOAT,
+                            category VARCHAR(255),
+                            
+                        )
+                     ''')
 def DB_restrictions():
     global insurance,savings,housing
-    print("The following questions will betterhelp budget beacon make your budgeting experience seamless, please ensure that you answeer all questions accurately, respond witht he appropriate index")
+    print("The following questions will better help budget beacon make your budgeting experience seamless, please ensure that you answer all questions accurately, and respond with he appropriate index")
     
     savings_check=int(input("Do you save money monthly, or at all ? \n1.Yes \n2.No "))
     
@@ -61,3 +74,5 @@ def DB_restrictions():
         pass
     else:
         housing=(None)
+        
+    
